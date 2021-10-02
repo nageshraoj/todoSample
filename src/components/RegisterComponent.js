@@ -13,7 +13,6 @@ const RegisterComponent = () => {
   const dispatch = useDispatch()
 
   const switchLogIn = (logType) => {
-    
     switch (logType) {
       case 'LogIn':
         dispatch({ type: 'LOGIN' })
@@ -44,6 +43,7 @@ const RegisterComponent = () => {
       //   left: "50%",
       height: '70%',
       width: '40%',
+      maxWidth: '500px',
       minWidth: '400px',
       minHeight: '500px',
       display: 'flex',

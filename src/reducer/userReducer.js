@@ -1,16 +1,28 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
-const logInReducer = (state = "LogIn", action) => {
+const logInReducer = (state = 'LogIn', action) => {
   switch (action.type) {
-    case "LOGIN":
-      return "LogIn";
-    case "REGISTER":
-      return "Register";
+    case 'LOGIN':
+      return 'LogIn'
+    case 'REGISTER':
+      return 'Register'
     default:
-      return state;
+      return state
   }
-};
+}
+
+const isLogInReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'LOGIN_USER':
+      return true
+    case 'LOGOUT_USER':
+      return false
+    default:
+      return state
+  }
+}
 
 export default combineReducers({
-  isLogin: logInReducer,
-});
+  loginType: logInReducer,
+  isLogin: isLogInReducer,
+})

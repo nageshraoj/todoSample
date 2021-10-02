@@ -12,6 +12,10 @@ import { makeStyles } from '@material-ui/core/styles'
 const LoginComponent = () => {
   const dispatch = useDispatch()
 
+  const userLogIn = (e) => {
+    dispatch({ type: 'LOGIN_USER' })
+  }
+
   const switchLogIn = (logType) => {
     switch (logType) {
       case 'LogIn':
@@ -43,6 +47,7 @@ const LoginComponent = () => {
       //   left: "50%",
       height: '60%',
       width: '40%',
+      maxWidth: '500px',
       minWidth: '400px',
       minHeight: '200px',
       display: 'flex',
@@ -105,7 +110,11 @@ const LoginComponent = () => {
           >
             Register
           </Button>
-          <Button variant='contained' color='primary'>
+          <Button
+            variant='contained'
+            color='primary'
+            onClick={(e) => userLogIn()}
+          >
             Login
           </Button>
         </div>
