@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppBar, Toolbar, Tabs, Tab } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { Link } from 'react-router-dom'
-import createMixins from '@material-ui/core/styles/createMixins'
+import { Link, useHistory } from 'react-router-dom'
 
 const HeaderComponent = () => {
   const [index, setIndex] = useState(0)
+  const history = useHistory()
   const dispatch = useDispatch()
 
   const userLogOut = () => {
+    history.push('/')
     dispatch({ type: 'LOGOUT_USER' })
   }
 
