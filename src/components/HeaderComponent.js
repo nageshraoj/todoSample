@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppBar, Toolbar, Tabs, Tab } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { Link } from 'react-router-dom'
+import createMixins from '@material-ui/core/styles/createMixins'
 
 const HeaderComponent = () => {
   const [index, setIndex] = useState(0)
@@ -12,6 +14,9 @@ const HeaderComponent = () => {
   }
 
   const headerStyle = makeStyles((theme) => ({
+    toolStyle: {
+      ...theme.mixins.toolbar,
+    },
     tabsStyle: {
       marginLeft: 'auto',
     },
@@ -34,11 +39,36 @@ const HeaderComponent = () => {
             value={index}
             onChange={(e, value) => setIndex(value)}
           >
-            <Tab className={style.tabStyle} label='Home' />
-            <Tab className={style.tabStyle} label='Products' />
-            <Tab className={style.tabStyle} label='Cart' />
-            <Tab className={style.tabStyle} label='Orders' />
-            <Tab className={style.tabStyle} label='Profile' />
+            <Tab
+              className={style.tabStyle}
+              label='Home'
+              to='/home'
+              component={Link}
+            />
+            <Tab
+              className={style.tabStyle}
+              label='Products'
+              to='/products'
+              component={Link}
+            />
+            <Tab
+              className={style.tabStyle}
+              label='Cart'
+              to='/cart'
+              component={Link}
+            />
+            <Tab
+              className={style.tabStyle}
+              label='Orders'
+              to='/orders'
+              component={Link}
+            />
+            <Tab
+              className={style.tabStyle}
+              label='Profile'
+              to='/profile'
+              component={Link}
+            />
             <Tab
               className={style.tabStyle}
               label='LogOut'
@@ -47,6 +77,7 @@ const HeaderComponent = () => {
           </Tabs>
         </Toolbar>
       </AppBar>
+      <div className={style.toolStyle} />
     </>
   )
 }
